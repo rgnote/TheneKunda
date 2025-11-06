@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  thenekundа:
+    build: .
+    container_name: thenekundа-honeypot
+    restart: unless-stopped
+    ports:
+      - "2222:2222"  # SSH
+      - "2323:2323"  # Telnet
+      - "8080:8080"  # HTTP
+    volumes:
+      - ./logs:/app/logs
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - TZ=UTC
+    command: ["-config", "/app/config.yaml"]
+    networks:
+      - honeypot-net
+
+networks:
+  honeypot-net:
+    driver: bridge

@@ -1,0 +1,21 @@
+general:
+    log_dir: logs
+services:
+    http:
+        enabled: true
+        port: 8080
+        server_banner: Apache/2.4.41 (Ubuntu)
+    ssh:
+        enabled: true
+        port: 2222
+        banner: SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
+    telnet:
+        enabled: true
+        port: 2323
+        banner: Ubuntu 20.04 LTS
+alerts:
+    webhook:
+        enabled: false
+        url: ""
+    console:
+        enabled: true
