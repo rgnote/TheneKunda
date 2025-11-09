@@ -130,6 +130,12 @@ func (l *Logger) LogEvent(service, eventType, ip, message string, extraData map[
 	msg := fmt.Sprintf("[%s] %s from %s", service, message, ip)
 	l.consoleLog.Println(msg)
 
+	// Send to alert channel
+	select {
+	case l.alertChan <- event:
+	default:
+	}
+
 	return event
 }
 
