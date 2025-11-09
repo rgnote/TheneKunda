@@ -1,8 +1,8 @@
 .PHONY: all build run clean docker docker-build docker-run test fmt vet lint help
 
 # Binary name
-BINARY_NAME=thenekunday
-DOCKER_IMAGE=thenekunday-honeypot
+BINARY_NAME=thenekunda
+DOCKER_IMAGE=thenekunda-honeypot
 
 # Go parameters
 GOCMD=go

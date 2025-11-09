@@ -9,9 +9,9 @@ import (
 
 // Config represents the honeypot configuration
 type Config struct {
-	General  GeneralConfig             `yaml:"general"`
-	Services map[string]ServiceConfig  `yaml:"services"`
-	Alerts   AlertsConfig              `yaml:"alerts"`
+	General  GeneralConfig            `yaml:"general"`
+	Services map[string]ServiceConfig `yaml:"services"`
+	Alerts   AlertsConfig             `yaml:"alerts"`
 }
 
 // GeneralConfig contains general settings
@@ -54,7 +54,7 @@ func DefaultConfig() *Config {
 		Services: map[string]ServiceConfig{
 			"ssh": {
 				Enabled: true,
-				Port:    2222,
+				Port:    2223,
 				Banner:  "SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.5",
 			},
 			"telnet": {
@@ -64,7 +64,7 @@ func DefaultConfig() *Config {
 			},
 			"http": {
 				Enabled:      true,
-				Port:         8080,
+				Port:         8089,
 				ServerBanner: "Apache/2.4.41 (Ubuntu)",
 			},
 		},

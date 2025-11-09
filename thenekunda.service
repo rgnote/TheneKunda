@@ -1,0 +1,29 @@
+[Unit]
+Description=TheneKunda Honeypot Service
+After=network.target
+Documentation=https://github.com/rgnote/thenekunda
+
+[Service]
+Type=simple
+User=<user>
+Group=<group>
+WorkingDirectory=<path>
+ExecStart=<path>/thenekunda -config <path>/config.example.yaml
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=thenekunda
+
+# Security hardening
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=<path>/logs
+
+# Allow binding to privileged ports if needed
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
